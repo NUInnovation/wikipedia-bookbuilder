@@ -11,7 +11,7 @@ def index():
 def search():
     search = request.args.get('searchQuery')
     query = urllib.quote(search)
-    endPoint = 'https://en.wikipedia.org/w/api.php?action=query&titles=' + query + '&redirects&contentformat=text/css&prop=revisions&rvprop=content&format=json'
+    endPoint = 'https://en.wikipedia.org/w/api.php?action=query&titles=' + query + '&redirects&prop=revisions&rvprop=content&format=json'
     r = requests.get(endPoint)
     result = jsonify(r.json())
     return result
