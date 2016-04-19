@@ -1,6 +1,23 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-<script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+<!DOCTYPE html lang = "en-us">
+<head>
+  <title>Wikipedia Book Builder</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
+  <!-- Load Bootstrap, JQuery and Angular.js -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+  integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+  crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-2.2.3.min.js"
+  integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="
+  crossorigin="anonymous">
+  </script>
+
+</head>
+
+
+<body>
 <div>
   <h1>Wikipedia Book Builder</h1>
 </div>
@@ -14,7 +31,9 @@
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
 </div><!-- /.row -->
+</body>
 
+<!-- Load the search functionality with wikipedia API -->
 <script>
     $( "#searchButton" ).click(function() {
        var value = $( "#input" ).val();
@@ -25,3 +44,5 @@
         });
     });
 </script>
+
+</html>
