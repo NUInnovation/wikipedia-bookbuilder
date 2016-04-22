@@ -211,6 +211,9 @@ header .header-content .header-content-inner p {
     font-size: 16px;
     font-weight: 300;
 }
+#searchBar {
+  opacity: 0.6;
+}
 
 @media(min-width:768px) {
     header {
