@@ -24,14 +24,15 @@ def search():
         summary = wikipedia.summary(title, sentences = 10)
         link = article.links[0]
         html = article.html()
-        image = article.images[1]
+        # image = article.images[1]
         text = content.split("==")
-        d["image"] = image
+        # d["image"] = image
         d["summary"] = summary
         d["title"] = title
         resArray.append(d)
         # print content
         # print text
+        print title
         for n in range(0,len(text) - 1):
             if (n % 2 != 0):
                 print text[n]
