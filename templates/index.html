@@ -101,61 +101,65 @@
           </div>
       </div>
   </header>
-
-    <section id="select">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading text-primary">Step 1: Choose A Related Article</h2>
-                    <p class="text-muted">You can pick the topic of your choice and WIkiBookey will effectively aggregate the top topics that are related from Wikipedia to your search into one page so that you can be more focused on what you want to accomplish in a shorter time.</p>
-                    <hr class="light">
-                </div>
-            </div>
-
-            <ul class="media-list">
-              <li class="media">
-                <div class="media-left">
-                  <a href="#">
-                    <img class="media-object" src="..." alt="...">
-                  </a>
-                </div>
-                <div class="media-body">
-                  <h4 class="media-heading">Key Words Heading</h4>
-                  Lorem ipsum dolor sit amet, diamlorem amet at vitae urna, sit volutpat et sapien. Suscipit volutpat rhoncus id ac at lacinia, pellentesque eleifend porttitor sem, aliquam non. Ut nisl quisque, nullam vitae nulla sapien, et sociosqu est, consectetuer aliquam. Vel consectetuer ante rhoncus pede ante, lectus quam et enim rhoncus vivamus viverra, nibh non massa, nulla ultrices pellentesque nec massa pede. Tempor sit pellentesque mauris iaculis ac sed, vestibulum et litora. Nam non, nulla volutpat scelerisque metus et sodales, urna nunc sodales, arcu consectetuer mauris montes. Quisque tristique volutpat sit sollicitudin ut. Eu lacinia placerat, libero ante per odio cras orci volutpat. Congue purus ac, iure malesuada. Sit fusce quisque.
-                </div>
-              </li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="design">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading text-primary">Step 2: Manage Your Book Chapters</h2>
-                    <p class="text-muted">Here you are able to pick and choose the topics and place them in your preferred order, just like how you would write your own book.</p>
-                    <hr class="light">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="generate">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading text-primary">Step 3: Choose a Style and Generate Your Book</h2>
-                    <p class="text-muted">Unleash your creative prowess with the colorful templates that come with options to change fonts, color and upload your favorite photo for your cover page. When all those are done, click “print” and you will find yourself owning a brand new book!</p>
-                    <hr class="light">
-                    <div class="btn-group" role="group" aria-label="...">
-                      <button type="button" class="btn btn-primary" ng-click='openPdf()'>Open</button>
-                      <button type="button" class="btn btn-primary" ng-click='print()'>Print</button>
-                      <button type="button" class="btn btn-primary" ng-click='download()'>Download</button>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- This is for sections of steps -->
+      <div class="col-md-6">
+        <section id="select">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                        <h2 class="section-heading text-primary">Step 1: Choose A Related Article</h2>
+                        <p class="text-muted">You can pick the topic of your choice and WIkiBookey will effectively aggregate the top topics that are related from Wikipedia to your search into one page so that you can be more focused on what you want to accomplish in a shorter time.</p>
+                        <hr class="light">
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        <section id="design">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                        <h2 class="section-heading text-primary">Step 2: Manage Your Book Chapters</h2>
+                        <p class="text-muted">Here you are able to pick and choose the topics and place them in your preferred order, just like how you would write your own book.</p>
+                        <hr class="light">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="generate">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                        <h2 class="section-heading text-primary">Step 3: Choose a Style and Generate Your Book</h2>
+                        <p class="text-muted">Unleash your creative prowess with the colorful templates that come with options to change fonts, color and upload your favorite photo for your cover page. When all those are done, click “print” and you will find yourself owning a brand new book!</p>
+                        <hr class="light">
+                        <div class="btn-group" role="group" aria-label="...">
+                          <button type="button" class="btn btn-primary" ng-click='openPdf()'>Open</button>
+                          <button type="button" class="btn btn-primary" ng-click='print()'>Print</button>
+                          <button type="button" class="btn btn-primary" ng-click='download()'>Download</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+      </div>
+      <!-- This is for previews -->
+      <div class="col-md-6">
+        <section>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Preview Your Book</h3>
+            </div>
+            <div class="panel-body">
+              <iframe width="660" height="1000" src="http://www.cs.huji.ac.il/course/2004/algo/Solutions/bitonic.pdf">
+              </iframe>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
 
     <section class="bg-primary" id="about">
         <div class="container">
