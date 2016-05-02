@@ -27,6 +27,7 @@ def search():
         html = article.html()
         # image = article.images[1]
         text = content.split("==")
+
         headers = []
         # print text
         # for n in range(0,len(text) - 1):
@@ -46,6 +47,18 @@ def search():
         d["title"] = title
         resArray.append(d)
         return resArray[x]
+
+        # d["image"] = image
+        d["summary"] = summary
+        d["title"] = title
+        resArray.append(d)
+        # print content
+        # print text
+        print title
+        for n in range(0,len(text) - 1):
+            if (n % 2 != 0):
+                print text[n]
+
 
         print "******************************************"
 
