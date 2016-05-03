@@ -25,6 +25,9 @@ def search():
         # image = article.images[1]
         text = content.split("==")
 
+        d["title"] = title
+        d["summary"] = summary
+
         sections = []
         s = {}
         for n in range(0,len(text)):
@@ -39,8 +42,7 @@ def search():
 
         # d["image"] = image
         d["sections"] = sections
-        d["summary"] = summary
-        d["title"] = title
+
         resArray.append(d)
 
     # print resArray
