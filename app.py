@@ -11,8 +11,6 @@ def index():
 @app.route('/search', methods=['GET'])
 def search():
     search = request.args.get('searchQuery')
-    # query = urllib.quote(search)
-
     results = wikipedia.search('"' + search + '"', results=5, suggestion= 0)
     resArray = []
 
@@ -26,30 +24,27 @@ def search():
         html = article.html()
         # image = article.images[1]
         text = content.split("==")
+
+        sections = []
+        s = {}
+        for n in range(0,len(text)):
+            if (n % 2 != 0):
+                s["header"] = text[n]
+                print text[n]
+            else:
+                s["content"] = text[n]
+                print text[n]
+                sections.append(s)
+                s = {}
+
         # d["image"] = image
+        d["sections"] = sections
         d["summary"] = summary
         d["title"] = title
         resArray.append(d)
-        # print content
-        # print text
-        print title
-        for n in range(0,len(text) - 1):
-            if (n % 2 != 0):
-                print text[n]
-
-        print "******************************************"
-
-    # class wikipedia.WikipediaPage(title= )
-
-    # endPoint = 'https://en.wikipedia.org/w/api.php?action=query&titles=' + query + '&redirects&prop=revisions&rvprop=content&format=json&formatversion=2&continue='
-    # r = requests.get(endPoint)
-    # result = jsonify(r.json())
-    # for x in secondQuery:
-    # print content
 
     # print resArray
-    # return jsonify(resArray)
-    return "done!"
+    return jsonify(articles = resArray)
 
 if __name__ == "__main__":
     app.run(debug = True)
