@@ -69,13 +69,13 @@
           }
     };
 
-	pdfGenerate.controller('PDFCtrl',
-		function($scope) {
 
-		$scope.openPdf = function () {
-			pdfMake.createPdf(docDefinition).open();
-			};
-		$scope.print = function() {
-			pdfMake.createPdf(docDefinition).print();
-			};
+	   pdfGenerate.controller('PDFCtrl', function($scope) {
+
+    	$scope.openPdf = function () {
+  			pdfMake.createPdf(docDefinition).open();
+  			};
+  		$scope.print = function() {
+  			pdfMake.createPdf(docDefinition).print();
+  			};
 	});
