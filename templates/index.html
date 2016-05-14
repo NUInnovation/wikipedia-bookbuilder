@@ -137,6 +137,7 @@
                         <h2 class="section-heading text-primary">Step 2: Manage Your Book Chapters</h2>
                         <p class="text-muted">Here you are able to pick and choose the topics and place them in your preferred order, just like how you would write your own book.</p>
                         <hr class="light" >
+                        <div id= "clear">
                         <!--<div class="panel-group" id="designs">
                          <div class="panel panel-default">
                              <div class="panel-heading">
@@ -181,6 +182,7 @@
                             </div>
                         </div> 
                       </div>-->
+                      </div>
                     </div>
                 </div>
             </div>
@@ -257,7 +259,7 @@
               $('#articles').append(e);
               e.attr('id',num);
               $(e).bind("click",function () {
-                 $("#designs").empty();
+                 $("#clear").empty();
                  var sec = item.sections;
                  console.log("content:" + sec);
                  var n = 1;
@@ -269,11 +271,20 @@
                           '<div class="panel panel-default">'+
                              '<div class="panel-heading">'+
                                '<h4 class="panel-title">'+
-                                 '<span style="float:left"><input type="checkbox" aria-label="..."></span><a data-toggle="collapse" href="#collapse1" >'+sec[k].header+'</a>'+
+                                 '<span style="float:left"><input type="checkbox" aria-label="..."></span><a data-toggle="collapse" >'+sec[k].header+'</a>'+
                                '</h4>'+
                             '</div>'+
                          '</div>');
-                        $('#designs').append(ee);
+                         // var eee = $('<div class="panel-collapse collapse">' + 
+                         //    '<div class="panel-body">' +
+                         //         '<div class="list-group">'+
+                         //           '<div class="list-group-item" ><span style="float:left"><input type="checkbox" aria-label="..." ></span>'+sec[k].content+'</div>'+
+                         //           '</div>'+
+                         //       '</div>'+
+                         //     '</div>');
+                         // $(eee).attr("id","collapse"+k);
+                         // $(ee).attr("href",$(eee));
+                        $('#clear').append(ee);
                     };
                     // document.getElementById("test"+n).innerHTML = sec[k].header;
                     // document.getElementById("test"+eval(n+1)).innerHTML = sec[k].content;
