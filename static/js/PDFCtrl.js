@@ -8,7 +8,7 @@ $( "#searchButton" ).click(function() {
     $.each(data.articles, function(i,item){
       $('#articles').append('<div class="list-group">'+
       '<a href="#design" class="list-group-item">'+
-      '<h4 style="text-align:center">' + item.title + '</h4></a>' +
+      '<h4>' + item.title + '</h4></a>' +
       '<div class="list-group-item">' + item.summary + '</div>' +
       '</div>');
 
@@ -24,11 +24,14 @@ $( "#searchButton" ).click(function() {
 
     doc.fromHTML($('#articles').get(0), 15, 15, {
       'width': 170,
+      // 'margin': 1,
+      // 'pagesplit': true,
       'elementHandlers': specialElementHandlers
     });
     //doc.save('Test.pdf');
 
     $('#cmd').click(function(){
+      doc.setFont("calibri");
       doc.output('dataurlnewwindow');
     });
   });
