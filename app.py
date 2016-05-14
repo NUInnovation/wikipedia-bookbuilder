@@ -13,7 +13,7 @@ def search():
     search = request.args.get('searchQuery')
     results = wikipedia.search('"' + search + '"', results=5, suggestion= 0)
     resArray = []
-
+    d = {}
     for x in range(0,4):
         d = {}
         title = '"' + results[x] + '"'
@@ -37,9 +37,10 @@ def search():
             else:
                 s["content"] = text[n]
                 print text[n]
+                # s[text[n]] = text[n+1]
                 sections.append(s)
                 s = {}
-
+                
         # d["image"] = image
         d["sections"] = sections
 
