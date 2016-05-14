@@ -10,7 +10,6 @@
 
   <title>Wikipedia Book Builder</title>
 
-
   <!-- Load Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -36,19 +35,13 @@
   <!-- Bootstrap Core JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-  <!-- Load pdfMake.js -->
-  <script src="static/js/pdfmake.js"></script>
-	<script src="static/js/pdfmake.min.js"></script>
-	<script src="static/js/pdfmake.min.js.map"></script>
-  <script src="static/js/vfs_fonts.js"></script>
-
-  <script src="static/js/PDFCtrl.js"></script>
-
-
+  <!-- JSPDF javascript Library -->
+  <!-- <script src="http://parall.ax/parallax/js/jspdf.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js"></script>
 </head>
 
 
-<body id="page-top" ng-controller='PDFCtrl'>
+<body id="page-top">
 
   <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
@@ -104,7 +97,7 @@
   <div class="container-fluid">
     <div class="row">
       <!-- This is for sections of steps -->
-      <div class="col-md-6">
+      <!-- <div class="col-md-6"> -->
         <section id="select">
             <div class="container-fluid">
                 <div class="row">
@@ -116,75 +109,23 @@
                 </div>
                 <div id="articles">
                   <h3 style="text-align:center">Related Articles</h3>
-                    <!-- <div class="list-group">
-                      <a href="#design" class="list-group-item">
-                        <h4 style="text-align:center">item.title</h4></a>
-                        <div class="list-group-item">item.summary</div>
-                    </div> -->
-                <!-- <div class="list-group">
-                  <a href="#design" class="list-group-item">
-                  <h4 style="text-align:center">Tree</h4></a>
-                  <div class="list-group-item">In botany, a tree is a perennial plant with an elongated stem, or trunk, supporting branches and leaves in most species.
-                  </div>
-                </div> -->
               </div>
             </div>
         </section>
         <section id="design">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 text-center" id="designs">
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
                         <h2 class="section-heading text-primary">Step 2: Manage Your Book Chapters</h2>
                         <p class="text-muted">Here you are able to pick and choose the topics and place them in your preferred order, just like how you would write your own book.</p>
-                        <hr class="light" >
-                        <div id= "clear">
-                        <!--<div class="panel-group" id="designs">
-                         <div class="panel panel-default">
-                             <div class="panel-heading">
-                               <h4 class="panel-title">
-                                 <span style="float:left"><input type="checkbox" aria-label="..."></span><a data-toggle="collapse" href="#collapse1" id = "test1">section1</a>
-                               </h4>
-                             </div>
-                             <div id="collapse1" class="panel-collapse collapse">
-                               <div class="panel-body">
-                                 <div class="list-group">
-                                   <div class="list-group-item" id= "test2"><span style="float:left"><input type="checkbox" aria-label="..." ></span>content</div>
-                                   </div>
-                               </div>
-                             </div>
-                         </div>
-                         <div class="panel panel-default">
-                            <div class="panel-heading">
-                              <h4 class="panel-title">
-                                <span style="float:left"><input type="checkbox" aria-label="..."></span><a data-toggle="collapse" href="#collapse2" id="test3">Section2</a>
-                              </h4>
-                            </div>
-                            <div id="collapse2" class="panel-collapse collapse">
-                              <div class="panel-body">
-                                <div class="list-group">
-                                  <div class="list-group-item" id="test4"><span style="float:left"><input type="checkbox" aria-label="..."></span>content</div>
-                                  </div>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                              <h4 class="panel-title">
-                                <span style="float:left"><input type="checkbox" aria-label="..."></span><a data-toggle="collapse" href="#collapse2" id="test5">Section3</a>
-                              </h4>
-                            </div>
-                            <div id="collapse2" class="panel-collapse collapse">
-                              <div class="panel-body">
-                                <div class="list-group">
-                                  <div class="list-group-item" id="test6"><span style="float:left"><input type="checkbox" aria-label="..."></span>content</div>
-                                  </div>
-                              </div>
-                            </div>
-                        </div> 
-                      </div>-->
-                      </div>
+                        <hr class="light">
                     </div>
                 </div>
+                <h3 style="text-align:center">Choose Subsections</h3>
+                <div id="clear">
+                </div>
+                <!-- <div id="print"></div>
+              <button type="button" class="btn btn-primary btn-block" id="cmd">Test PDF Generation</button> -->
             </div>
         </section>
         <section id="generate">
@@ -195,17 +136,17 @@
                         <p class="text-muted">Unleash your creative prowess with the colorful templates that come with options to change fonts, color and upload your favorite photo for your cover page. When all those are done, click “print” and you will find yourself owning a brand new book!</p>
                         <hr class="light">
                         <div class="btn-group" role="group" aria-label="...">
-                          <button type="button" class="btn btn-primary" ng-click='openPdf()'>Open</button>
-                          <button type="button" class="btn btn-primary" ng-click='print()'>Print</button>
-                          <button type="button" class="btn btn-primary" ng-click='download()'>Download</button>
+                          <button type="button" class="btn btn-primary" id="open">Open PDF</button>
+                          <button type="button" class="btn btn-primary" id="print">Print</button>
+                          <button type="button" class="btn btn-primary" id="download">Download</button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-      </div>
+      <!-- </div> -->
       <!-- This is for previews -->
-      <div class="col-md-6">
+      <!-- <div class="col-md-6">
         <section>
           <div class="panel panel-primary">
             <div class="panel-heading">
@@ -217,7 +158,7 @@
             </div>
           </div>
         </section>
-      </div>
+      </div> -->
     </div>
   </div>
 
@@ -233,90 +174,11 @@
             </div>
         </div>
     </section>
-    <div id="test">
-      <h3>Test div</h3>
-    </div>
 
 </body>
 
-
-  <!-- Load the search functionality with wikipedia API -->
-
-  <script>
-      var num=1;
-      $( "#searchButton" ).click(function() {
-         var value = $( "#input" ).val();
-        console.log(value);
-        $.get( "/search", { searchQuery: value } )
-          .done(function( data ) {
-            $("#articles").empty();
-            $.each(data.articles, function(i,item){
-              var e = $('<div class="list-group">'+
-                '<a href="#design" class="list-group-item" >'+
-                  '<h4 style="text-align:center">' + item.title + '</h4></a>' +
-                  '<div class="list-group-item">' + item.summary + '</div>' +
-              '</div>');
-              $('#articles').append(e);
-              e.attr('id',num);
-              $(e).bind("click",function () {
-                 $("#clear").empty();
-                 var sec = item.sections;
-                 console.log("content:" + sec);
-                 var n = 1;
-                 for (var k = 1; k < sec.length-1; k++){
-                    console.log("header:" + sec[k].header);
-                    console.log("content:" + sec[k].content);
-                    if(sec[k].header != "") {
-                         var ee = $('<div class="panel-group">'+
-                          '<div class="panel panel-default">'+
-                             '<div class="panel-heading">'+
-                               '<h4 class="panel-title">'+
-                                 '<span style="float:left"><input type="checkbox" aria-label="..."></span><a data-toggle="collapse" >'+sec[k].header+'</a>'+
-                               '</h4>'+
-                            '</div>'+
-                         '</div>');
-                         // var eee = $('<div class="panel-collapse collapse">' + 
-                         //    '<div class="panel-body">' +
-                         //         '<div class="list-group">'+
-                         //           '<div class="list-group-item" ><span style="float:left"><input type="checkbox" aria-label="..." ></span>'+sec[k].content+'</div>'+
-                         //           '</div>'+
-                         //       '</div>'+
-                         //     '</div>');
-                         // $(eee).attr("id","collapse"+k);
-                         // $(ee).attr("href",$(eee));
-                        $('#clear').append(ee);
-                    };
-                    // document.getElementById("test"+n).innerHTML = sec[k].header;
-                    // document.getElementById("test"+eval(n+1)).innerHTML = sec[k].content;
-                    //n = n+2;
-                 }
-               });
-               num++;
-              });
-            /*$.each(data.articles, function(i,item){
-              $(this).attr('id',num);
-            });
-            $.each(data.articles, function(i,item){
-              $(this).click(function () {
-                $("body").append("<p>test</p>");
-              });
-            });*/
-          });
-      });
-     
-     $("#test").click(function() {
-       document.getElementById("test").innerHTML = "hhah";
-     });
-
-      // function myfucntion() {
-      //   var x =document.getElementById("collapse-one");
-      //   x = atrical_data;
-      // }
-  </script>
-
-
-
-  <!-- Custom Theme JavaScript -->
-  <script src="static/js/creative.js" type="text/javascript"></script>
+  <!-- Custom JavaScripts -->
+  <script src="../static/js/PDFCtrl.js"></script>
+  <script src="../static/js/creative.js" type="text/javascript"></script>
 
 </html>
