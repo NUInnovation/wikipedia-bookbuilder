@@ -1,38 +1,81 @@
-//Search functinality implemented here
+
 $( "#searchButton" ).click(function() {
-  var value = $( "#input" ).val();
+   var value = $( "#input" ).val();
   console.log(value);
   $.get( "/search", { searchQuery: value } )
-  .done(function( data ) {
-    $("#articles").empty();
-    $.each(data.articles, function(i,item){
-      $('#articles').append('<div class="list-group">'+
-      '<a href="#design" class="list-group-item">'+
-      '<h4>' + item.title + '</h4></a>' +
-      '<div class="list-group-item">' + item.summary + '</div>' +
-      '</div>');
+    .done(function( data ) {
+      $("#articles").empty();
+      $("#clear").empty();
+      // var test;
+      $.each(data.articles, function(i,item){
+        var e = $('<div class="list-group">'+
+          '<a href="#design" class="list-group-item" >'+
+            '<h4>' + item.title + '</h4></a>' +
+            '<div class="list-group-item">' + item.summary + '</div>' +
+        '</div>');
+        $('#articles').append(e);
+        // $("#clear").empty();
+        $(e).bind("click",function () {
+           $("#clear").empty();
+          //  for (var k = 1; k < sec.length-1; k++)
+           var sec = item.sections;
+          //  console.log("content:" + sec);
+           for (var k = 1; k < sec.length-1; k++){
+          //     test = sec[k].header;
+          //     console.log("header:" + sec[k].header);
+          //     console.log("content:" + sec[k].content);
+              if(sec[k].header != "") {
+                   var ee = $('<div class="list-group">'+
+                     '<a href="#design" class="list-group-item" >'+
+                       '<h4>' + sec[k].header + '</h4></a>' +
+                       '<div class="list-group-item">' + sec[k].content+ '</div>' +
+                   '</div>');
+                   // var eee = $('<div class="panel-collapse collapse">' +
+                   //    '<div class="panel-body">' +
+                   //         '<div class="list-group">'+
+                   //           '<div class="list-group-item" ><span style="float:left"><input type="checkbox" aria-label="..." ></span>'+sec[k].content+'</div>'+
+                   //           '</div>'+
+                   //       '</div>'+
+                   //     '</div>');
+                   // $(eee).attr("id","collapse"+k);
+                   // $(ee).attr("href",$(eee));
+              };
+              $('#clear').append(ee);
+           };
+          var doc = new jsPDF();
+
+          // We'll make our own renderer to skip this editor
+          var specialElementHandlers = {
+            '#editor': function(element, renderer){
+              return true;
+            }
+          };
+
+          doc.fromHTML($('#clear').get(0), 15, 15, {
+            'width': 170,
+            // 'margin': 1,
+            // 'pagesplit': true,
+            'elementHandlers': specialElementHandlers
+          });
+          //doc.save('Test.pdf');
+
+          $('#open').click(function(){
+            // doc.setFont("calibri");
+            doc.output('dataurlnewwindow');
+          });
+          $('#download').click(function(){
+            // doc.setFont("calibri");
+            doc.save('test.pdf');
+          });
+
+          //doc function ends here
+
+
+         });
+        //  $('#clear').appendTo('#print');
+        });
+
+        //originally goes here
 
     });
-    var doc = new jsPDF();
-
-    // We'll make our own renderer to skip this editor
-    var specialElementHandlers = {
-      '#editor': function(element, renderer){
-        return true;
-      }
-    };
-
-    doc.fromHTML($('#articles').get(0), 15, 15, {
-      'width': 170,
-      // 'margin': 1,
-      // 'pagesplit': true,
-      'elementHandlers': specialElementHandlers
-    });
-    //doc.save('Test.pdf');
-
-    $('#cmd').click(function(){
-      doc.setFont("calibri");
-      doc.output('dataurlnewwindow');
-    });
-  });
 });
