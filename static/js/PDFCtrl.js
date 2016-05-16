@@ -28,8 +28,11 @@ $( "#searchButton" ).click(function() {
                    var ee = $('<div class="list-group">'+
                      '<a href="#design" class="list-group-item" >'+
                        '<h4>' + sec[k].header + '</h4></a>' +
+                       '<input id="section-' + k + '" type="checkbox" name="checkbox" checked="checked" value="' + sec[k].header + '">' +
                        '<div class="list-group-item">' + sec[k].content+ '</div>' +
                    '</div>');
+
+
                    // var eee = $('<div class="panel-collapse collapse">' +
                    //    '<div class="panel-body">' +
                    //         '<div class="list-group">'+
@@ -42,6 +45,19 @@ $( "#searchButton" ).click(function() {
               };
               $('#clear').append(ee);
            };
+           $("[id^=section-]").click(function() {
+             var num = this.id.slice(8);
+             var $elem = $('.section-'+num);
+             var id = $(this).attr('id');
+             var value = $('#' + id + '').val();
+             console.log($('#' + id + '').val());
+           });
+          //  $( "input[type='checkbox']" ).prop( "checked", function( i, val ) {
+          //    if (val == true){
+          //      console.log("clicked!")
+          //    };
+          //    console.log(!val);
+          //  });
           var doc = new jsPDF();
 
           // We'll make our own renderer to skip this editor
