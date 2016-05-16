@@ -28,8 +28,8 @@ $( "#searchButton" ).click(function() {
                    var ee = $('<div class="list-group">'+
                      '<a href="#design" class="list-group-item" >'+
                        '<h4>' + sec[k].header + '</h4></a>' +
-                       '<input id="section-' + k + '" type="checkbox" name="checkbox" checked="checked" value="' + sec[k].header + '">' +
-                       '<div class="list-group-item">' + sec[k].content+ '</div>' +
+                       '<input id="section-' + k + '" type="checkbox" name="checkbox" checked="checked" value="' + sec[k].header +  " " + sec[k].content + '">' +
+                      //  '<div class="list-group-item">' + sec[k].content+ '</div>' +
                    '</div>');
 
 
@@ -50,7 +50,62 @@ $( "#searchButton" ).click(function() {
              var $elem = $('.section-'+num);
              var id = $(this).attr('id');
              var value = $('#' + id + '').val();
+             $('#book').append('<h3>' + value + '</h3>');
              console.log($('#' + id + '').val());
+
+            //  var doc = new jsPDF();
+             //
+            //  // We'll make our own renderer to skip this editor
+            //  var specialElementHandlers = {
+            //    '#editor': function(element, renderer){
+            //      return true;
+            //    }
+            //  };
+             //
+            //  doc.fromHTML($('#book').get(0), 15, 15, {
+            //    'width': 170,
+            //    // 'margin': 1,
+            //   //  'pagesplit': true,
+            //    'elementHandlers': specialElementHandlers
+            //  });
+            //  //doc.save('Test.pdf');
+             //
+            //  $('#open').click(function(){
+            //    // doc.setFont("calibri");
+            //    doc.output('dataurlnewwindow');
+            //  });
+            //  $('#download').click(function(){
+            //    // doc.setFont("calibri");
+            //    doc.save('test.pdf');
+            //  });
+
+             //doc function ends here
+
+           });
+           var doc = new jsPDF();
+
+           // We'll make our own renderer to skip this editor
+           var specialElementHandlers = {
+             '#editor': function(element, renderer){
+               return true;
+             }
+           };
+
+           doc.fromHTML($('#articles').get(0), 15, 15, {
+             'width': 170,
+             // 'margin': 1,
+            //  'pagesplit': true,
+             'elementHandlers': specialElementHandlers
+           });
+           //doc.save('Test.pdf');
+
+           $('#open').click(function(){
+             // doc.setFont("calibri");
+             doc.output('dataurlnewwindow');
+           });
+           $('#download').click(function(){
+             // doc.setFont("calibri");
+             doc.save('test.pdf');
            });
           //  $( "input[type='checkbox']" ).prop( "checked", function( i, val ) {
           //    if (val == true){
@@ -58,33 +113,6 @@ $( "#searchButton" ).click(function() {
           //    };
           //    console.log(!val);
           //  });
-          var doc = new jsPDF();
-
-          // We'll make our own renderer to skip this editor
-          var specialElementHandlers = {
-            '#editor': function(element, renderer){
-              return true;
-            }
-          };
-
-          doc.fromHTML($('#clear').get(0), 15, 15, {
-            'width': 170,
-            // 'margin': 1,
-            // 'pagesplit': true,
-            'elementHandlers': specialElementHandlers
-          });
-          //doc.save('Test.pdf');
-
-          $('#open').click(function(){
-            // doc.setFont("calibri");
-            doc.output('dataurlnewwindow');
-          });
-          $('#download').click(function(){
-            // doc.setFont("calibri");
-            doc.save('test.pdf');
-          });
-
-          //doc function ends here
 
 
          });

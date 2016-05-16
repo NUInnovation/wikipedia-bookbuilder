@@ -24,6 +24,9 @@ def search():
         html = article.html()
         # image = article.images[1]
         text = content.split("==")
+        # q = 0
+        # for q in text:
+        #     text = text[q].replace("=", "")
 
         d["title"] = title
         d["summary"] = summary
@@ -40,7 +43,7 @@ def search():
                 # s[text[n]] = text[n+1]
                 sections.append(s)
                 s = {}
-                
+
         # d["image"] = image
         d["sections"] = sections
 
