@@ -28,8 +28,11 @@ $( "#searchButton" ).click(function() {
                    var ee = $('<div class="list-group">'+
                      '<a href="#design" class="list-group-item" >'+
                        '<h4>' + sec[k].header + '</h4></a>' +
-                       '<div class="list-group-item">' + sec[k].content+ '</div>' +
+                       '<input id="section-' + k + '" type="checkbox" name="checkbox" checked="checked" value="' + sec[k].header +  " " + sec[k].content + '">' +
+                      //  '<div class="list-group-item">' + sec[k].content+ '</div>' +
                    '</div>');
+
+
                    // var eee = $('<div class="panel-collapse collapse">' +
                    //    '<div class="panel-body">' +
                    //         '<div class="list-group">'+
@@ -42,33 +45,74 @@ $( "#searchButton" ).click(function() {
               };
               $('#clear').append(ee);
            };
-          var doc = new jsPDF();
+           $("[id^=section-]").click(function() {
+             var num = this.id.slice(8);
+             var $elem = $('.section-'+num);
+             var id = $(this).attr('id');
+             var value = $('#' + id + '').val();
+             $('#book').append('<h3>' + value + '</h3>');
+             console.log($('#' + id + '').val());
 
-          // We'll make our own renderer to skip this editor
-          var specialElementHandlers = {
-            '#editor': function(element, renderer){
-              return true;
-            }
-          };
+            //  var doc = new jsPDF();
+             //
+            //  // We'll make our own renderer to skip this editor
+            //  var specialElementHandlers = {
+            //    '#editor': function(element, renderer){
+            //      return true;
+            //    }
+            //  };
+             //
+            //  doc.fromHTML($('#book').get(0), 15, 15, {
+            //    'width': 170,
+            //    // 'margin': 1,
+            //   //  'pagesplit': true,
+            //    'elementHandlers': specialElementHandlers
+            //  });
+            //  //doc.save('Test.pdf');
+             //
+            //  $('#open').click(function(){
+            //    // doc.setFont("calibri");
+            //    doc.output('dataurlnewwindow');
+            //  });
+            //  $('#download').click(function(){
+            //    // doc.setFont("calibri");
+            //    doc.save('test.pdf');
+            //  });
 
-          doc.fromHTML($('#clear').get(0), 15, 15, {
-            'width': 170,
-            // 'margin': 1,
-            // 'pagesplit': true,
-            'elementHandlers': specialElementHandlers
-          });
-          //doc.save('Test.pdf');
+             //doc function ends here
 
-          $('#open').click(function(){
-            // doc.setFont("calibri");
-            doc.output('dataurlnewwindow');
-          });
-          $('#download').click(function(){
-            // doc.setFont("calibri");
-            doc.save('test.pdf');
-          });
+           });
+           var doc = new jsPDF();
 
-          //doc function ends here
+           // We'll make our own renderer to skip this editor
+           var specialElementHandlers = {
+             '#editor': function(element, renderer){
+               return true;
+             }
+           };
+
+           doc.fromHTML($('#articles').get(0), 15, 15, {
+             'width': 170,
+             // 'margin': 1,
+            //  'pagesplit': true,
+             'elementHandlers': specialElementHandlers
+           });
+           //doc.save('Test.pdf');
+
+           $('#open').click(function(){
+             // doc.setFont("calibri");
+             doc.output('dataurlnewwindow');
+           });
+           $('#download').click(function(){
+             // doc.setFont("calibri");
+             doc.save('test.pdf');
+           });
+          //  $( "input[type='checkbox']" ).prop( "checked", function( i, val ) {
+          //    if (val == true){
+          //      console.log("clicked!")
+          //    };
+          //    console.log(!val);
+          //  });
 
 
          });
