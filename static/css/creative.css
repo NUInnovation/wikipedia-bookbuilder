@@ -490,3 +490,10 @@ body {
 /*#book {
   display: none;
 }*/
+input {
+  float:right;
+}
+#clear {
+  margin-left: 100px;
+  margin-right: 100px;
+}

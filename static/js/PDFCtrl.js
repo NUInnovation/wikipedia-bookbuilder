@@ -21,27 +21,13 @@ $( "#searchButton" ).click(function() {
            var sec = item.sections;
           //  console.log("content:" + sec);
            for (var k = 1; k < sec.length-1; k++){
-          //     test = sec[k].header;
-          //     console.log("header:" + sec[k].header);
-          //     console.log("content:" + sec[k].content);
               if(sec[k].header != "") {
-                   var ee = $('<div class="list-group">'+
-                     '<a href="#design" class="list-group-item" >'+
-                       '<h4>' + sec[k].header + '</h4></a>' +
-                       '<input id="section-' + k + '" type="checkbox" name="checkbox" value="' + sec[k].header +  " " + sec[k].content + '">' +
+                   var ee = $('<ul class=list-group>'+
+                       '<li class="list-group-item"><input id="section-' + k + '" type="checkbox" name="checkbox" value="' + sec[k].header +  " " + sec[k].content + '">' +'<h4>'+ sec[k].header +'</h4>'+ '</li>' +
+                      //  '<h4 class="list-group-item">' + sec[k].header + '</h4>' +
                       //  '<div class="list-group-item">' + sec[k].content+ '</div>' +
-                   '</div>');
+                   '</ul>');
 
-
-                   // var eee = $('<div class="panel-collapse collapse">' +
-                   //    '<div class="panel-body">' +
-                   //         '<div class="list-group">'+
-                   //           '<div class="list-group-item" ><span style="float:left"><input type="checkbox" aria-label="..." ></span>'+sec[k].content+'</div>'+
-                   //           '</div>'+
-                   //       '</div>'+
-                   //     '</div>');
-                   // $(eee).attr("id","collapse"+k);
-                   // $(ee).attr("href",$(eee));
               };
               $('#clear').append(ee);
            };
@@ -49,10 +35,13 @@ $( "#searchButton" ).click(function() {
              var num = this.id.slice(8);
              var $elem = $('.section-'+num);
              var id = $(this).attr('id');
-             var value = $('#' + id + '').val();
-             $('#book').append('<div>' + value + '</div>');
-             console.log($('#' + id + '').val());
-
+             var value = $('#' + id + '');
+             $('#book').append(
+               '<div id=' + id + '>' +
+               '<h3>' + sec[num].header + '</h3>' +
+               '</br>' +
+             '<div>' + sec[num].content + '</div>' +
+             '</div>');
            });
 
            $('#open').click(function(){
@@ -67,11 +56,10 @@ $( "#searchButton" ).click(function() {
              doc.fromHTML($('#book').get(0), 15, 15, {
                'width': 170,
                // 'margin': 1,
-              //  'pagesplit': true,
+               'pagesplit': true,
                'elementHandlers': specialElementHandlers
              });
-             //doc.save('Test.pdf');
-             // doc.setFont("calibri");
+
              doc.output('dataurlnewwindow');
            });
 
@@ -87,28 +75,15 @@ $( "#searchButton" ).click(function() {
              doc.fromHTML($('#book').get(0), 15, 15, {
                'width': 170,
                // 'margin': 1,
-              //  'pagesplit': true,
+               'pagesplit': true,
                'elementHandlers': specialElementHandlers
              });
-             //doc.save('Test.pdf');
-             // doc.setFont("calibri");
-             // doc.setFont("calibri");
              doc.save('test.pdf');
            });
 
-          //  $( "input[type='checkbox']" ).prop( "checked", function( i, val ) {
-          //    if (val == true){
-          //      console.log("clicked!")
-          //    };
-          //    console.log(!val);
-          //  });
-
-
          });
-        //  $('#clear').appendTo('#print');
-        });
 
-        //originally goes here
+        });
 
     });
 });
