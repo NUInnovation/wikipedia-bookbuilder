@@ -38,8 +38,11 @@ def search():
                 s["header"] = text[n]
                 print text[n]
             else:
-                s["content"] = text[n]
-                print text[n]
+                paragraphs = text[n].split("\n")
+                for y in paragraphs:
+                    if (y != ""):
+                        s["content"] = paragraphs
+                print paragraphs
                 # s[text[n]] = text[n+1]
                 sections.append(s)
                 s = {}

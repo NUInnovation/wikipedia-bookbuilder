@@ -4,6 +4,7 @@ $( "#searchButton" ).click(function() {
   console.log(value);
   $.get( "/search", { searchQuery: value } )
     .done(function( data ) {
+      console.log(data);
       $("#articles").empty();
       $("#clear").empty();
       // var test;
