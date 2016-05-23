@@ -24,26 +24,23 @@ def search():
         html = article.html()
         # image = article.images[1]
         text = content.split("==")
-        # q = 0
-        # for q in text:
-        #     text = text[q].replace("=", "")
-
-        d["title"] = title
+        correctedTitle = title.replace('\"','')
+        d["title"] = correctedTitle
         d["summary"] = summary
 
         sections = []
         s = {}
         for n in range(0,len(text)):
             if (n % 2 != 0):
-                s["header"] = text[n]
-                # print text[n]
+                correctedHeaders = text[n].replace("=", "")
+                s["header"] = correctedHeaders
+
             else:
-                paragraphs = text[n].split("\n")
-                for y in paragraphs:
-                    if (y != ""):
-                        s["content"] = paragraphs
-                # print paragraphs
-                # s[text[n]] = text[n+1]
+                # paragraphs = text[n].split("\n")
+                # for y in paragraphs:
+                #     if (y != ""):
+                #         s["content"] = paragraphs
+                s["content"] = text[n]
                 sections.append(s)
                 s = {}
 
@@ -52,7 +49,6 @@ def search():
 
         resArray.append(d)
 
-    # print resArray
     return jsonify(articles = resArray)
 
 if __name__ == "__main__":
