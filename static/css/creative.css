@@ -497,3 +497,8 @@ input {
   margin-left: 100px;
   margin-right: 100px;
 }
+
+#book {
+  /*display: none;*/
+  font-family: Garamond;
+}
