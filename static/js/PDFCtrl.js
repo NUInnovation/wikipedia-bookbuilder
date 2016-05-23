@@ -38,7 +38,7 @@ $( "#searchButton" ).click(function() {
              var id = $(this).attr('id');
              var value = $('#' + id + '');
              $('#table').append(
-               '<ol>' + sec[num].header + '</ol>'
+               '<li>' + sec[num].header + '</li>'
               );
              $('#book').append(
                '<div id=' + id + '>' +

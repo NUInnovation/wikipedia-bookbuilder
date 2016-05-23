@@ -36,13 +36,13 @@ def search():
         for n in range(0,len(text)):
             if (n % 2 != 0):
                 s["header"] = text[n]
-                print text[n]
+                # print text[n]
             else:
                 paragraphs = text[n].split("\n")
                 for y in paragraphs:
                     if (y != ""):
                         s["content"] = paragraphs
-                print paragraphs
+                # print paragraphs
                 # s[text[n]] = text[n+1]
                 sections.append(s)
                 s = {}
