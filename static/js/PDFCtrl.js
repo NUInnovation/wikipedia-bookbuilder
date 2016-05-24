@@ -17,6 +17,7 @@ $( "#searchButton" ).click(function() {
         $('#articles').append(e);
         // $("#clear").empty();
         $(e).bind("click",function () {
+          var tracker = 0;
            $("#clear").empty();
           //  for (var k = 1; k < sec.length-1; k++)
            var sec = item.sections;
@@ -37,18 +38,22 @@ $( "#searchButton" ).click(function() {
              var $elem = $('.section-'+num);
              var id = $(this).attr('id');
              var value = $('#' + id + '');
+             tracker = tracker + 1;
              $('#table').append(
                '<li>' + sec[num].header + '</li>'
               );
              $('#book').append(
                '<div id=' + id + '>' +
-               '<h3>' + sec[num].header + '</h3>' +
+               '<h3>' + tracker + '. ' + sec[num].header + '</h3>' +
                '</br>' +
              '<div>' + sec[num].content + '</div>' +
              '</div>');
            });
 
            $('#open').click(function(){
+             $("#title").empty();
+             $('#title').append( value
+              );
              var doc = new jsPDF();
              // We'll make our own renderer to skip this editor
              var specialElementHandlers = {

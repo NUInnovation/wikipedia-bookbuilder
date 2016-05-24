@@ -40,7 +40,8 @@ def search():
                 # for y in paragraphs:
                 #     if (y != ""):
                 #         s["content"] = paragraphs
-                s["content"] = text[n]
+                correctedContent = text[n].replace("=", "")
+                s["content"] = correctedContent
                 sections.append(s)
                 s = {}
 
