@@ -97,7 +97,7 @@
   <div class="container-fluid">
     <div class="row">
       <!-- This is for sections of steps -->
-      <!-- <div class="col-md-6"> -->
+      <div class="col-md-6">
         <section id="select">
             <div class="container-fluid">
                 <div class="row">
@@ -145,21 +145,20 @@
                 </div>
             </div>
         </section>
-      <!-- </div> -->
+      </div>
       <!-- This is for previews -->
-      <!-- <div class="col-md-6">
+      <div class="col-md-6">
         <section>
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">Preview Your Book</h3>
-            </div>
-            <div class="panel-body">
-              <iframe width="100%" height="1000" src="http://localhost:1234">
-              </iframe>
-            </div>
+          <div class="panel panel-info">
+          <div style="text-align:center" class="panel-heading">Preview Your Book</div>
+          <div class="panel-body" id="book">
+            <h1 id="title"></h1>
+            <h2>Table of Contents</h2>
+            <ol id="table"></ol>
+            <div id="bookContent"></div>
           </div>
         </section>
-      </div> -->
+      </div>
     </div>
   </div>
 
@@ -175,12 +174,6 @@
             </div>
         </div>
     </section>
-    <div id="book">
-      <h1 id="title"></h1>
-      <h2>Table of Contents</h2>
-      <ol id="table"></ol>
-      <div id="bookContent"></div>
-    </div>
 </body>
 
   <!-- Custom JavaScripts -->

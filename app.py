@@ -19,7 +19,7 @@ def search():
         title = '"' + results[x] + '"'
         article = wikipedia.page(title)
         content = article.content
-        summary = wikipedia.summary(title, sentences = 10)
+        summary = wikipedia.summary(title, sentences = 3)
         link = article.links[0]
         html = article.html()
         # image = article.images[1]

@@ -499,6 +499,6 @@ input {
 }
 
 #book {
-  display: none;
+  /*display: none;*/
   font-family: Garamond;
 }
