@@ -42,8 +42,8 @@ $( "#searchButton" ).click(function() {
              $('#table').append(
                '<li>' + sec[num].header + '</li>'
               );
-             $('#book').append(
-               '<div id=' + id + '>' +
+             $('#bookContent').append(
+               '<div id=' + id + ' class="list-group-item">' +
                '<h3>' + tracker + '. ' + sec[num].header + '</h3>' +
                '</br>' +
              '<div>' + sec[num].content + '</div>' +

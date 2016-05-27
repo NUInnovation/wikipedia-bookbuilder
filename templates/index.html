@@ -155,7 +155,7 @@
             <h1 id="title"></h1>
             <h2>Table of Contents</h2>
             <ol id="table"></ol>
-            <div id="bookContent"></div>
+            <div id="bookContent" class="list-group"></div>
           </div>
         </section>
       </div>
@@ -176,7 +176,14 @@
     </section>
 </body>
 
+
   <!-- Custom JavaScripts -->
+  <script src="http://rubaxa.github.io/Sortable/Sortable.js"></script>
+  <script>
+  var el = document.getElementById('bookContent');
+  var sortable = Sortable.create(el);
+  </script>
+
   <script src="../static/js/PDFCtrl.js"></script>
   <script src="../static/js/creative.js" type="text/javascript"></script>
 
