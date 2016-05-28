@@ -503,3 +503,13 @@ input {
   font-family: Garamond;
 }
 
+
+.affix {
+  top: 0px;
+}
+
+.ScrollStyle
+{
+    max-height: 400px;
+    overflow-y: scroll;
+}

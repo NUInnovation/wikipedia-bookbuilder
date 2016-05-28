@@ -38,12 +38,6 @@
   <!-- JSPDF javascript Library -->
   <!-- <script src="http://parall.ax/parallax/js/jspdf.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js"></script>
-   <style>
-  /* Note: Try to remove the following lines to see the effect of CSS positioning */
-      .affix {
-        top: 0px;
-      }
-      </style>
 </head>
 
 
@@ -81,7 +75,7 @@
           <!-- /.navbar-collapse -->
       </div>
       <!-- /.container-fluid -->
-     
+
   </nav>
 
 
@@ -102,11 +96,33 @@
       </div>
   </header>
   <div class="container-fluid">
-    <div class="row">
-      <!-- This is for sections of steps -->
-      <div class="col-md-6">
+    <div class="row-fluid">
+      <!-- This is for previews -->
+
+      <div class="col-md-5" data-spy = "affix" data-offset-top ="855" data-offset-bottom="120">
+        <div>
+        <section>
+          <div class="panel panel-info">
+            <div style="text-align:center" class="panel-heading">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                <h4 class="text-primary">Preview Your Book</h4></a>
+              </div>
+              <div id="collapse1" class="panel-collapse collapse in">
+              <div class="panel-body ScrollStyle" id="book">
+                <h1 id="title"></h1>
+                <h2>Table of Contents</h2>
+                <ol id="table"></ol>
+                <div id="bookContent" class="list-group"></div>
+              </div>
+            </div>
+          </div>
+          </section>
+          </div>
+        </div>
+        <div class="col-md-5"></div>
+
+        <div class="col-md-7">
         <section id="select">
-            <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2 text-center">
                         <h2 class="section-heading text-primary">Step 1: Choose A Related Article</h2>
@@ -117,7 +133,7 @@
                 <hr class="primary">
                 <!-- <h3 style="text-align:center">Related Articles</h3> -->
                 <div id="articles"></div>
-            </div>
+
         </section>
 
         <section id="design">
@@ -152,23 +168,9 @@
                 </div>
             </div>
         </section>
-      </div>
-      <!-- This is for previews -->
-      <div class="col-md-6" >
-        <section data-spy = "affix" data-offset-top ="655">
-          <div class="panel panel-info">
-          <div style="text-align:center" class="panel-heading">Preview Your Book</div>
-          <div class="panel-body" id="book">
-            <h1 id="title"></h1>
-            <h2>Table of Contents</h2>
-            <ol id="table"></ol>
-            <div id="bookContent" class="list-group"></div>
-          </div>
-        </section>
-      </div>
+        </div>
     </div>
-  </div>
-
+    
     <section class="bg-primary" id="about">
         <div class="container">
             <div class="row">
@@ -181,6 +183,7 @@
             </div>
         </div>
     </section>
+  </div>
 </body>
 
 
