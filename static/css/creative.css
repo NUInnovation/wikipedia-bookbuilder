@@ -513,3 +513,35 @@ input {
     max-height: 400px;
     overflow-y: scroll;
 }
+
+
+#loader {
+  background: white;
+  margin:auto;
+  display:none;
+}
+
+.circle {
+  box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  border: 10px solid #F5F5F5;
+  border-top-color: #F1914D;
+  -webkit-animation: spin 1s infinite linear;
+          animation: spin 1s infinite linear;
+}
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}

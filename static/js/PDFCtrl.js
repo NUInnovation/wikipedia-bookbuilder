@@ -1,5 +1,6 @@
 
 $( "#searchButton" ).click(function() {
+  $('#loader').css("display","block")
    var value = $( "#input" ).val();
   console.log(value);
   $.get( "/search", { searchQuery: value } )
