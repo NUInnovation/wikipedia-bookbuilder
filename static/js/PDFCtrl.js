@@ -49,7 +49,7 @@ $( "#searchButton" ).click(function() {
           );
           $('#bookContent').append(
             '<div id=' + id + ' class="list-group-item">' +
-            '<h3>' + tracker + '. ' + sec[num].header + '</h3>' +
+            '<h3>' + sec[num].header + '</h3>' +
             '</br>' +
             '<div>' + sec[num].content + '</div>' +
             '</div>');
