@@ -398,6 +398,10 @@ fieldset[disabled] .btn-primary.active {
     background: #222;
 }
 
+#table {
+  padding-left: 40px;
+}
+
 img::selection {
     color: #fff;
     background: 0 0;

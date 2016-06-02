@@ -108,7 +108,7 @@
               <div class="panel-body ScrollStyle" id="book">
                 <h1 id="title"></h1>
                 <h2>Table of Contents</h2>
-                <ol id="table"></ol>
+                <ol id="table" class="list-group"></ol>
                 <div id="bookContent" class="list-group"></div>
               </div>
             </div>
@@ -178,6 +178,8 @@
   <script>
   var el = document.getElementById('bookContent');
   var sortable = Sortable.create(el);
+  var test = document.getElementById('table');
+  var sort2 = Sortable.create(test);
   </script>
 
   <script src="../static/js/PDFCtrl.js"></script>
