@@ -4,6 +4,9 @@
  - Cindy Koh
  - Michael Martinez
  - Junjie Li
+ 
+## Demo
+Use this link to review our app: https://wikibookey.herokuapp.com/
 
 ## Description
 The project aims to use Wikipedia as the key resource to build books that will focus on topics that a reader wants to read, as if the reader were to purchase a complete, coherent book from the bookstore.
